@@ -1,4 +1,25 @@
-add a0,a2,a4 # add lower 32 bits: a0 = a2 + a4
-sltu a2,a0,a2 # a2’ = 1 if (a2+a4) < a2, a2’ = 0 otherwise
-add a5,a3,a5 # add upper 32 bits: a5 = a3 + a5
-add a1,a2,a5 # add carry-out from lower 32 bits
+##############################################
+## Programa que soma dois numeros inteiros ###
+##############################################
+
+MAIN:
+	jal ra, SOMA		# Pula para a Label SOMA ## ra = PC + 4
+	li a7, 1		# Mostra o resultado no console
+	add a0, t1, zero
+	ecall
+	
+	li a7, 10 		# Stop Program
+	add a0, t1, zero
+	ecall
+	
+	
+SOMA:
+	addi t1, t1, 100	 # t1 = t1 + 100
+	addi t2, t2, 50		 # t2 = t2 + 50
+	add t1, t1, t2 		 # t1 = t1 + t2
+	ret			 # retornar o fluxo normal do programa
+	
+
+	
+	
+	
